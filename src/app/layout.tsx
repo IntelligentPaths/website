@@ -21,6 +21,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <LayoutShell>{children}</LayoutShell>
+        <script dangerouslySetInnerHTML={{ __html: 'window.TALOS_API_BASE = "https://talos-api-1010112566563.us-central1.run.app";' }} />
         <Script
           src="https://talos-api-1010112566563.us-central1.run.app/static/widget/widget.js"
           data-talos-key="talos_pk_f5c5327561abd7b067d369a0f339e0c968a041a37173a92b5e6d8929102c4258"
