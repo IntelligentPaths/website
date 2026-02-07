@@ -1,26 +1,236 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ═══════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════ */
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #0a0a0f;
+  color: #c8d6e5;
+  cursor: crosshair;
+  overflow-x: hidden;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ═══════════════════════════════════════
+   MIST LAYERS (animation-only classes —
+   layout + gradients are inline to survive
+   Tailwind v4 purging)
+   ═══════════════════════════════════════ */
+.animate-mist-1 {
+  animation: mistDrift 25s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.animate-mist-2 {
+  animation: mistDrift2 35s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════
+   ATMOSPHERE ANIMATIONS
+   ═══════════════════════════════════════ */
+@keyframes mistDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(2%, -1%) scale(1.02); }
+  50% { transform: translate(-1%, 2%) scale(0.98); }
+  75% { transform: translate(1%, 1%) scale(1.01); }
+}
+
+@keyframes mistDrift2 {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(-2%, 1%); }
+  66% { transform: translate(1%, -2%); }
+}
+
+@keyframes hexBreathe {
+  0%, 100% { opacity: 0.02; }
+  50% { opacity: 0.08; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes nodeFloat {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.2; }
+  50% { transform: translateY(-20px) scale(1.5); opacity: 0.6; }
+}
+
+@keyframes typewrite {
+  0% { width: 0; opacity: 0; }
+  5% { opacity: 1; }
+  40% { width: var(--tw); opacity: 1; }
+  60% { width: var(--tw); opacity: 1; }
+  80% { width: var(--tw); opacity: 0; }
+  100% { width: 0; opacity: 0; }
+}
+
+@keyframes scanUp {
+  0%   { bottom: 0%; opacity: 1; }
+  85%  { opacity: 1; }
+  100% { bottom: 100%; opacity: 0; }
+}
+
+/* ═══════════════════════════════════════
+   LOGO ANIMATIONS
+   ═══════════════════════════════════════ */
+@keyframes logoPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(0, 180, 220, 0.15)) drop-shadow(0 0 20px rgba(0, 160, 200, 0.08));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(0, 200, 240, 0.35)) drop-shadow(0 0 40px rgba(0, 180, 220, 0.18));
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes logoReveal {
+  0%   { clip-path: inset(100% 0 0 0); }
+  100% { clip-path: inset(0% 0 0 0); }
+}
+
+@keyframes logoScan {
+  0%   { top: 100%; opacity: 1; }
+  85%  { opacity: 1; }
+  100% { top: 0%; opacity: 0; }
+}
+
+/* ═══════════════════════════════════════
+   NAV ANIMATIONS
+   ═══════════════════════════════════════ */
+@keyframes ringPulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes scrollBob {
+  0%, 100% { transform: rotate(45deg) translate(0, 0); opacity: 0.3; }
+  50% { transform: rotate(45deg) translate(3px, 3px); opacity: 0.6; }
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+@keyframes widgetFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ═══════════════════════════════════════
+   CODE FRAGMENT POSITIONS
+   ═══════════════════════════════════════ */
+.code-line {
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(0, 212, 255, 0.1);
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 1px solid rgba(0, 212, 255, 0.15);
+}
+
+/* ═══════════════════════════════════════
+   HEPTAGON NAV NODES
+   ═══════════════════════════════════════ */
+.nav-node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-node:hover {
+  transform: translate(-50%, -50%) scale(1.15) !important;
+}
+
+.nav-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  animation: ringPulse 3s ease-in-out infinite;
+}
+
+.nav-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(0, 212, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.nav-node:hover .nav-label {
+  color: rgba(0, 212, 255, 0.9);
+}
+
+.nav-node:hover .nav-dot {
+  background: rgba(0, 212, 255, 0.9);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+}
+
+/* ═══════════════════════════════════════
+   SCROLL INDICATOR
+   ═══════════════════════════════════════ */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.scroll-chevron {
+  width: 12px;
+  height: 12px;
+  border-right: 1.5px solid rgba(0, 212, 255, 0.3);
+  border-bottom: 1.5px solid rgba(0, 212, 255, 0.3);
+  animation: scrollBob 2s ease-in-out infinite;
+}
+
+.scroll-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(0, 212, 255, 0.7);
+}
+
+/* ═══════════════════════════════════════
+   NAVBAR RESPONSIVE
+   ═══════════════════════════════════════ */
+.nav-mobile-toggle {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .nav-desktop-links {
+    display: none !important;
+  }
+  .nav-mobile-toggle {
+    display: flex !important;
+  }
 }
