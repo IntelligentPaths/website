@@ -23,7 +23,7 @@ export default function RootLayout({
         <LayoutShell>{children}</LayoutShell>
         <Script
           src="https://talos-api-1010112566563.us-central1.run.app/static/widget/widget.js"
-          data-talos-key="talos_pk_8dff2f3c06f57fce251de959b4226d6b72b2a45ac025445b919be47334ab5aea"
+          data-talos-key="talos_pk_f5c5327561abd7b067d369a0f339e0c968a041a37173a92b5e6d8929102c4258"
           strategy="lazyOnload"
         />
       </body>
