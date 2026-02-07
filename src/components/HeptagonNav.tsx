@@ -14,23 +14,31 @@ const NAV_ITEMS = [
 ];
 
 const DESKTOP = { size: 700, radius: 300 };
-const MOBILE = { size: 440, radius: 175 };
 const BP = 768;
+
+function getMobileDims(w: number) {
+  const size = Math.min(440, Math.floor(w * 0.88));
+  const radius = Math.floor(size * 0.4);
+  return { size, radius };
+}
 
 export default function HeptagonNav() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const hoveredRef = useRef(-1);
   const rafRef = useRef(0);
-  const [mobile, setMobile] = useState(false);
+  const [dims, setDims] = useState(DESKTOP);
 
-  const { size, radius } = mobile ? MOBILE : DESKTOP;
+  const { size, radius } = dims;
   const center = size / 2;
 
   useEffect(() => {
-    const check = () => setMobile(window.innerWidth < BP);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
+    const compute = () => {
+      const w = window.innerWidth;
+      setDims(w >= BP ? DESKTOP : getMobileDims(w));
+    };
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
   }, []);
 
   const positions = useMemo(
@@ -146,8 +154,6 @@ export default function HeptagonNav() {
       style={{
         width: size,
         height: size,
-        maxWidth: "95vw",
-        maxHeight: "95vw",
         left: "50%",
         top: "50%",
         transform: "translate(-50%, -50%)",

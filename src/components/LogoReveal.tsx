@@ -18,7 +18,7 @@ export default function LogoReveal() {
           height={280}
           priority
           className="select-none"
-          style={{ width: "clamp(160px, 40vw, 280px)", height: "auto" }}
+          style={{ width: "clamp(120px, 35vw, 280px)", height: "auto" }}
         />
 
         {/* Scan line that sweeps up during reveal */}

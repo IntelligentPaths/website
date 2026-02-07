@@ -233,4 +233,18 @@ body {
   .nav-mobile-toggle {
     display: flex !important;
   }
+  .nav-label {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+  }
+  .nav-dot {
+    width: 10px;
+    height: 10px;
+  }
+  .nav-dot::after {
+    inset: -3px;
+  }
+  .scroll-indicator {
+    bottom: 16px;
+  }
 }
