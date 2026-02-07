@@ -66,7 +66,7 @@ export default function NavBar() {
             alt="Intelligent Paths"
             width={40}
             height={40}
-            style={{ height: 40, width: "auto" }}
+            style={{ height: 40, width: "auto", filter: "brightness(1.5) sepia(1) saturate(5) hue-rotate(160deg) drop-shadow(0 0 6px rgba(0, 212, 255, 0.5))" }}
           />
           <span
             style={{
