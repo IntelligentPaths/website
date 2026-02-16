@@ -19,6 +19,7 @@ export default function Home() {
 
         {/* Tagline */}
         <p
+          className="home-subtitle"
           style={{
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: "clamp(0.6rem, 2vw, 0.85rem)",
@@ -33,6 +34,7 @@ export default function Home() {
 
         {/* Headline */}
         <h1
+          className="home-headline"
           style={{
             fontFamily: "'Space Grotesk', sans-serif",
             fontSize: "clamp(1.3rem, 5vw, 2.8rem)",

@@ -150,7 +150,7 @@ export default function HeptagonNav() {
 
   return (
     <div
-      className="absolute z-20"
+      className="absolute z-20 heptagon-wrap"
       style={{
         width: size,
         height: size,
@@ -159,7 +159,7 @@ export default function HeptagonNav() {
         transform: "translate(-50%, -50%)",
       }}
     >
-      <canvas ref={canvasRef} className="absolute inset-0" />
+      <canvas ref={canvasRef} className="absolute inset-0 heptagon-canvas" />
 
       {NAV_ITEMS.map((item, i) => {
         const pos = positions[i];
