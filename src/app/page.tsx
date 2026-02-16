@@ -24,7 +24,7 @@ export default function Home() {
             fontSize: "clamp(0.6rem, 2vw, 0.85rem)",
             letterSpacing: "clamp(1.5px, 1vw, 4px)",
             color: "rgba(0, 212, 255, 0.7)",
-            marginTop: "2rem",
+            marginTop: "0.75rem",
             animation: "fadeUp 0.8s ease 2.2s both",
           }}
         >

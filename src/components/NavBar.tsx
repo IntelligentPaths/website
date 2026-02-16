@@ -101,18 +101,18 @@ export default function NavBar() {
                   position: "relative",
                   fontFamily: "'Space Grotesk', sans-serif",
                   fontSize: "0.85rem",
-                  fontWeight: 500,
+                  fontWeight: 600,
                   letterSpacing: "2px",
                   textTransform: "uppercase",
                   textDecoration: "none",
-                  color: active ? "#00d4ff" : "rgba(200, 215, 230, 0.6)",
-                  textShadow: active ? "0 0 12px rgba(0, 212, 255, 0.4)" : "none",
+                  color: active ? "#ffffff" : "rgba(200, 215, 230, 0.85)",
+                  textShadow: active ? "0 0 12px rgba(0, 212, 255, 0.5)" : "none",
                   transition: "color 0.2s ease, text-shadow 0.2s ease",
                   padding: "6px 4px",
                 }}
                 onMouseEnter={(e) => {
                   if (!active) {
-                    e.currentTarget.style.color = "#00d4ff";
+                    e.currentTarget.style.color = "#ffffff";
                     e.currentTarget.style.textShadow = "0 0 12px rgba(0, 212, 255, 0.4)";
                   }
                   const dot = e.currentTarget.querySelector<HTMLSpanElement>(".nav-hover-dot");
@@ -120,7 +120,7 @@ export default function NavBar() {
                 }}
                 onMouseLeave={(e) => {
                   if (!active) {
-                    e.currentTarget.style.color = "rgba(200, 215, 230, 0.6)";
+                    e.currentTarget.style.color = "rgba(200, 215, 230, 0.85)";
                     e.currentTarget.style.textShadow = "none";
                   }
                   const dot = e.currentTarget.querySelector<HTMLSpanElement>(".nav-hover-dot");
@@ -201,8 +201,8 @@ export default function NavBar() {
                 letterSpacing: "3px",
                 textTransform: "uppercase",
                 textDecoration: "none",
-                color: active ? "#00d4ff" : "rgba(200, 215, 230, 0.65)",
-                textShadow: active ? "0 0 12px rgba(0, 212, 255, 0.4)" : "none",
+                color: active ? "#ffffff" : "rgba(200, 215, 230, 0.8)",
+                textShadow: active ? "0 0 12px rgba(0, 212, 255, 0.5)" : "none",
                 transition: "color 0.2s ease",
                 padding: "8px 16px",
               }}
