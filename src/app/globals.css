@@ -247,4 +247,7 @@ body {
   .scroll-indicator {
     bottom: 16px;
   }
+  .home-center-content {
+    padding-top: 40px;
+  }
 }

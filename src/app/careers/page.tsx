@@ -257,7 +257,7 @@ export default function CareersPage() {
 
           <FadeIn>
             <a
-              href="mailto:careers@intelligentpaths.com"
+              href="mailto:info@intelligentpaths.com"
               style={{
                 display: "inline-block",
                 fontFamily: "'Space Grotesk', sans-serif",
@@ -289,18 +289,6 @@ export default function CareersPage() {
             </a>
           </FadeIn>
 
-          <FadeIn>
-            <p
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: "0.8rem",
-                color: "rgba(180, 200, 220, 0.3)",
-                marginTop: "1.5rem",
-              }}
-            >
-              careers@intelligentpaths.com
-            </p>
-          </FadeIn>
         </section>
 
         {/* Bottom spacer */}

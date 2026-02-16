@@ -14,7 +14,7 @@ export default function Home() {
       <HeptagonNav />
 
       {/* Center content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none home-center-content">
         <LogoReveal />
 
         {/* Tagline */}
@@ -35,7 +35,7 @@ export default function Home() {
         <h1
           style={{
             fontFamily: "'Space Grotesk', sans-serif",
-            fontSize: "clamp(1.8rem, 5vw, 2.8rem)",
+            fontSize: "clamp(1.3rem, 5vw, 2.8rem)",
             fontWeight: 700,
             color: "#eaf2fc",
             marginTop: "0.5rem",

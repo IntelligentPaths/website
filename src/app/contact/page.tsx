@@ -119,24 +119,22 @@ export default function ContactPage() {
     setStatus("sending");
 
     try {
-      // Web3Forms integration — replace the access key with your real one
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("https://formsubmit.co/ajax/info@intelligentpaths.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // TODO: replace with real key
           name: form.name,
           email: form.email,
           company: form.company || "N/A",
           service: form.service || "Not specified",
           message: form.message,
-          subject: `New inquiry from ${form.name} — Intelligent Paths`,
+          _subject: `New inquiry from ${form.name} — Intelligent Paths`,
         }),
       });
 
       const data = await res.json();
 
-      if (data.success) {
+      if (data.success === "true" || data.success === true) {
         setStatus("success");
       } else {
         setStatus("error");
