@@ -926,7 +926,7 @@ export default function TalosPage() {
             >
               Questions?{" "}
               <a
-                href="mailto:hello@intelligentpaths.com"
+                href="mailto:info@intelligentpaths.com"
                 style={{
                   color: "rgba(0, 212, 255, 0.5)",
                   textDecoration: "none",
@@ -939,7 +939,7 @@ export default function TalosPage() {
                   e.currentTarget.style.color = "rgba(0, 212, 255, 0.5)";
                 }}
               >
-                hello@intelligentpaths.com
+                info@intelligentpaths.com
               </a>
             </p>
           </FadeIn>
