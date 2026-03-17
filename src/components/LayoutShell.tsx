@@ -12,7 +12,7 @@ export default function LayoutShell({ children }: { children: React.ReactNode })
     <>
       {!isHome && <NavBar />}
       {children}
-      {!isHome && <Footer />}
+      <Footer />
     </>
   );
 }
