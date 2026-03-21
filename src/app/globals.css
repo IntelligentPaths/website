@@ -122,6 +122,57 @@ body {
 }
 
 /* ═══════════════════════════════════════
+   TALOS SPHERE
+   ═══════════════════════════════════════ */
+@keyframes sphereBreathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes sphereFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes sphereShimmer {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(100%) rotate(25deg); }
+}
+
+@keyframes sphereGlowPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.15); }
+}
+
+/* ═══════════════════════════════════════
+   TALOS LOOP NODES
+   ═══════════════════════════════════════ */
+@keyframes loopNodePulse {
+  0%, 16%, 100% { border-color: rgba(0,212,255,0.08); box-shadow: none; }
+  8% { border-color: rgba(0,212,255,0.5); box-shadow: 0 0 20px rgba(0,212,255,0.2); }
+}
+
+@keyframes waveBar {
+  0%, 100% { height: 8px; }
+  50% { height: var(--bar-h, 24px); }
+}
+
+@keyframes suggestionCycle {
+  0%, 20% { opacity: 1; transform: translateY(0); }
+  25%, 100% { opacity: 0; transform: translateY(-8px); }
+}
+
+@keyframes gaugeNeedle {
+  0%, 100% { transform: rotate(-60deg); }
+  50% { transform: rotate(60deg); }
+}
+
+@keyframes timelineDot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,255,0.3); }
+  50% { box-shadow: 0 0 0 6px rgba(0,212,255,0); }
+}
+
+/* ═══════════════════════════════════════
    CODE FRAGMENT POSITIONS
    ═══════════════════════════════════════ */
 .code-line {
