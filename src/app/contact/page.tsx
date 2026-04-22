@@ -119,22 +119,21 @@ export default function ContactPage() {
     setStatus("sending");
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/info@intelligentpaths.com", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          company: form.company || "N/A",
-          service: form.service || "Not specified",
+          company: form.company,
+          service: form.service,
           message: form.message,
-          _subject: `New inquiry from ${form.name} — Intelligent Paths`,
         }),
       });
 
       const data = await res.json();
 
-      if (data.success === "true" || data.success === true) {
+      if (res.ok && data.success) {
         setStatus("success");
       } else {
         setStatus("error");
