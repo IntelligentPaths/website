@@ -1,4 +1,36 @@
 import Link from "next/link";
+import { Linkedin, Facebook, Instagram } from "lucide-react";
+
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
+const socialLinks = [
+  {
+    label: "Follow Intelligent Paths on LinkedIn",
+    href: "https://www.linkedin.com/company/intelligent-paths/",
+    icon: Linkedin,
+  },
+  {
+    label: "Follow Intelligent Paths on Facebook",
+    href: "https://www.facebook.com/profile.php?id=61567664312062",
+    icon: Facebook,
+  },
+  {
+    label: "Follow Intelligent Paths on Instagram",
+    href: "https://www.instagram.com/intelligentpaths.ai",
+    icon: Instagram,
+  },
+  {
+    label: "Follow Intelligent Paths on X",
+    href: "https://x.com/intellpaths_ai",
+    icon: null,
+  },
+];
 
 const productLinks = [
   { label: "Talos", href: "/products/talos" },
@@ -197,6 +229,52 @@ export default function Footer() {
         >
           info@intelligentpaths.com
         </a>
+      </div>
+
+      {/* Social links */}
+      <div
+        style={{
+          borderTop: "1px solid rgba(0, 212, 255, 0.06)",
+          padding: "1.25rem 0",
+          display: "flex",
+          justifyContent: "center",
+          gap: "1rem",
+        }}
+      >
+        {socialLinks.map((social) => (
+          <a
+            key={social.href}
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={social.label}
+            title={social.label}
+            style={{
+              color: "#c8d6e5",
+              padding: "0.75rem",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              transition: "color 0.2s ease-out, filter 0.2s ease-out, transform 0.2s ease-out",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "#00d4ff";
+              e.currentTarget.style.filter = "drop-shadow(0 0 6px rgba(0, 212, 255, 0.6))";
+              e.currentTarget.style.transform = "scale(1.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "#c8d6e5";
+              e.currentTarget.style.filter = "none";
+              e.currentTarget.style.transform = "scale(1)";
+            }}
+          >
+            {social.icon ? (
+              <social.icon className="w-5 h-5" />
+            ) : (
+              <XIcon className="w-5 h-5" />
+            )}
+          </a>
+        ))}
       </div>
     </footer>
   );
